@@ -18,28 +18,39 @@
             
             <div class="col-md-3">
                 <h3 class="heading"> Latest Mars News</h3>
-                <h4 class="title">{{detail.mars['title']}}</h4>
-                <p>{{detail.mars['paragraph']}}</p>
+                <h4 class="title">{{mars.title}}</h4>
+                <p>{{mars.paragraph}}</p>
             </div>
         </div>
         <div class="row">
-            {% for detail in mars %}
-            <div class="col-md-3">
-                <img src="{{detail.mars['image']}}" alt="Featured Mars Image">
-                <h4 class="heading"> Mars Facts</h4>
-                <div class="table">{{detail.mars['facts']}} </div>
+        
+            <div class="col-md-8">
+                <h2>Featured Mars Image</h2>
+                <img src="{{mars.image}}" class="img-responsive"alt="Featured Mars Image">
+            </div>
+
+            <div class="col-md-4">
+                <div class="row"
+                    <h4 class="heading"> Mars Facts</h4>
+                    {{mars.facts}}
+                </div>
             </div>        
-            {% endfor %}
+            
         </div>
         <div class="row>"            
             <div class="col-md-3">
                 <h3 class="heading text-center" >Mars Hemispheres</h3>
-                <img src="{{detail.mars['hemispheres']}}" alt="Hemispheres">
             </div>
-            
         </div>
 
-
+        {% for hemisphere in mars.hemispheres %} 
+        <div class="col-md-3"
+            <div class="thumbnail">
+                <img src="{{hemisphere.url}}" alt="Hemispheres">
+                <h3>{{hemisphere.title}}</h3>
+            </div>
+        </div>
+        {% endfor %}
     </div>
     
 </body>
